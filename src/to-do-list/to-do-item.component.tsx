@@ -1,4 +1,9 @@
-export default function ToDoItem({ props }) {
+interface ItemProps {
+    name: string;
+    done: boolean;
+}
+
+export default function ToDoItem(props: ItemProps) {
 
     return (
         <>
