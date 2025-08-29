@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './App.css'
 import BookSearch from './book-search/components/book-search'
 import TopNavBar from './book-search/top-navbar/top-navbar'
-import ToDoList from './to-do-list/to-do.component'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+// import ToDoList from './to-do-list/to-do.component'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './sign-in/components/sign-in.component';
 
 function App() {

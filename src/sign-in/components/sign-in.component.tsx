@@ -1,4 +1,4 @@
-import { useReducer, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 
 type RegisterFormState = {
     firstName: string;
