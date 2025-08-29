@@ -1,0 +1,53 @@
+#root {
+  min-width: 100dvw;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Cambria, Cochin, Georgia, Times, ' Times New Roman', serif';
+  color: #000;
+}
+
+.blurred-content {
+  filter: blur(5px);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+input,
+select {
+  background-color: rgba(117, 117, 117, 0.12);
+  height: 35px;
+  border-radius: 5px;
+  color: black;
+  padding-left: 5px;
+  border-bottom: #000 solid;
+}
+
+select:hover,
+option:hover {
+  cursor: pointer;
+}
+
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  color: #fff;
+  background-color: rgb(40, 88, 143);
+  border-radius: 10px;
+  height: 35px;
+}
+
+button:hover {
+  background-color: rgb(60, 106, 158);
+}
+
+button:active {
+  background-color: rgb(28, 93, 167);
+}
