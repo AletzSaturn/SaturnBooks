@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+// import { createContext, useState } from "react";
 
-const [user, setUser] = useState(null);
-export const AuthContext = createContext(1);
+// const [user, setUser] = useState(null);
+// export const AuthContext = createContext(1);
