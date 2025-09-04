@@ -7,7 +7,6 @@
 }
 
 .blurred-content {
-  filter: blur(5px);
   z-index: 0;
   pointer-events: none;
   user-select: none;
@@ -18,9 +17,9 @@ select {
   background-color: rgba(117, 117, 117, 0.12);
   height: 35px;
   border-radius: 5px;
-  color: black;
+  color: white;
   padding-left: 5px;
-  border-bottom: #000 solid;
+  border-bottom: #fff solid;
 }
 
 select:hover,
@@ -28,10 +27,7 @@ option:hover {
   cursor: pointer;
 }
 
-
-
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
   cursor: pointer;
 }
 

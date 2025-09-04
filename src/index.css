@@ -18,11 +18,22 @@
   font-family: "Notable", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+h1.notable-regular {
   font-size: 70px;
 }
 
+h2.notable-regular {
+  font-size: 50px;
+}
+
+h3.notable-regular {
+  font-size: 30px;
+}
+
 @media (max-width: 750px) {
-  .notable-regular{
-    font-size: 50px;
+  h2.notable-regular {
+    font-size: 35px;
   }
 }

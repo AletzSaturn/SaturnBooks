@@ -1,33 +1,31 @@
-import { useState } from 'react';
 import './App.css'
-import BookSearch from './book-search/components/book-search'
-import TopNavBar from './top-navbar/components/top-navbar';
-// import ToDoList from './to-do-list/to-do.component'
-import { BrowserRouter as Router, Routes, Route, Link, createBrowserRouter, RouterProvider, BrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Register from './sign-in/components/sign-in.component';
 import HomePage from './home/components/home.component';
+import RootLayout from './RootLayout/Root.component';
+import LogIn from './log-in/components/log-in.component';
+import MyBooks from './my-books/my-books.component';
 
 function App() {
-  const [showNavBar, setShowNavBar] = useState<boolean>(false);
 
-  const handleShowNavBar = () => {
-    setShowNavBar(!showNavBar);
-  }
 
   const routes = createBrowserRouter([
-    { path: '/', element: <HomePage /> },
-    { path: '/sign-in', element: <Register /> },
+    {
+      path: '/', element: <RootLayout />, children: [
+        { path: '/', element: <HomePage /> },
+        { path: '/my-books', element: <MyBooks /> },
+        { path: '/log-in', element: <LogIn /> },
+        { path: '/sign-in', element: <Register /> },
+        { path: '/book-search', element: <Register /> },
+      ]
+    }
   ]);
 
 
 
   return (
     <>
-      <TopNavBar showNavBar={showNavBar} handleShowNavBar={handleShowNavBar}>
-      </TopNavBar>
-      <div className={showNavBar ? 'blurred-content' : ''}>
-        {/* <ToDoList /> */}
-      </div>
+      <RouterProvider router={routes} />
     </>
   )
 }

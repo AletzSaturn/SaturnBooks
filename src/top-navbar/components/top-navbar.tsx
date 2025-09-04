@@ -9,41 +9,40 @@ interface NavBarInterface {
     //children: React.ReactNode;
 };
 
-
 export default function TopNavBar({ showNavBar, handleShowNavBar }: NavBarInterface) {
-
     return (
-        <div className='min-w-full bg-orange-200'>
+        <div className='min-w-full text-white block'>
             <IconContext.Provider value={{ size: '2em' }}>
-                <div className='p-2'>
-                    <span className='hover: cursor-pointer'>
+                <div className='p-2 fixed bg-amber-50/30 w-full min-h-12'>
+                    <span>
                         {!showNavBar &&
-                            <FaAlignJustify onClick={handleShowNavBar} />
+                            <FaAlignJustify className='hover: cursor-pointer' onClick={handleShowNavBar} />
                         }
                     </span>
                 </div>
-
                 {showNavBar &&
-                    <nav className='text-left bg-blue-500/50 w-45 min-h-dvh left-0 top-0 fixed'>
-                        <div className='w-full flex justify-end pt-2 pr-2'>
-                            <ul>
-                                <li className='h-10 content-center hover:cursor-pointer hover:bg-blue-400/50 active:bg-blue-600/50'>
-                                    <Link to='/'>Home</Link>
-                                </li>
-                                <li className='h-10 content-center hover:cursor-pointer hover:bg-blue-400/50 active:bg-blue-600/50'>
-                                    <Link to="/my-books">My Books</Link>
-                                </li>
-                                <li className='h-10 content-center hover:cursor-pointer hover:bg-blue-400/50 active:bg-blue-600/50'>
-                                    <Link to="/sign-in">Sign-In</Link>
-                                </li>
-                                <li className='h-10 content-center hover:cursor-pointer hover:bg-blue-400/50 active:bg-blue-600/50'>
-                                    <Link to="/about">Register</Link>
-                                </li>
-                            </ul>
-                            <span onClick={handleShowNavBar} className='hover: cursor-pointer'><IoMdClose /></span>
+                    <div className='text-left bg-amber-50/20 w-45 min-h-dvh fixed'>
+                        <nav>
+                            <div onClick={handleShowNavBar} className='w-full flex justify-end hover: cursor-pointer'><IoMdClose /></div>
+                            <div className='pt-2 text-center'>
+                                <ul>
+                                    <li className='h-10 content-center hover:cursor-pointer hover:bg-blue-400/50 active:bg-blue-600/50'>
+                                        <Link to='..' className='block w-full'>Home</Link>
+                                    </li>
+                                    <li className='h-10 content-center hover:cursor-pointer hover:bg-blue-400/50 active:bg-blue-600/50'>
+                                        <Link to="/my-books" className='block w-full'>My Books</Link>
+                                    </li>
+                                    <li className='h-10 content-center hover:cursor-pointer hover:bg-blue-400/50 active:bg-blue-600/50'>
+                                        <Link to="/log-in" className='block w-full'>Sign-In</Link>
+                                    </li>
+                                    <li className='h-10 content-center hover:cursor-pointer hover:bg-blue-400/50 active:bg-blue-600/50'>
+                                        <Link to="/sign-in" className='block w-full'>Register</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
 
-                        </div>
-                    </nav>
                 }
 
             </IconContext.Provider>
