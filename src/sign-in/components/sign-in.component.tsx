@@ -137,58 +137,54 @@ export default function Register() {
 
     return (
         <>
-            <div className="flex flex-col">
-                <div className="w-full flex justify-center min-w-70 bg-cyan-950 pt-20 text-white">
-                    <h3 className="notable-regular">Sign in</h3>
-                </div>
-                <div className="w-full flex justify-center min-w-70 bg-cyan-950 h-dvh text-white">
-                    {/* <form onSubmit={(event) => handleRegisterSubmitFormData(event)} className="flex flex-col" ref={registrationForm}> */}
-                    <form onSubmit={(event) => handleRegisterSubmit(event)} className="">
-                        <div className="flex justify-between flex-row flex-wrap">
-                            <div className="flex flex-col">
-                                <label htmlFor='firstName'> First Name <span className="text-red-500 text-sm">*</span></label>
-                                <input type="text" id='firstName' name="firstName" value={registerForm.firstName} onChange={(event) => handleInputChange(event, 'firstName')} />
-                                {errorsForm.firstName && <span className="text-red-500 text-xs">{errorsForm.firstName}</span>}
-                                <br />
-                                <label htmlFor="lastName"> Last Name <span className="text-red-500 text-sm">*</span></label>
-                                <input type="text" id='lastName' name="lastName" value={registerForm.lastName} onChange={(event) => handleInputChange(event, 'lastName')} />
-                                {errorsForm && <span className="text-red-500 text-xs">{errorsForm.lastName}</span>}
-                                <br />
-
-                                <label htmlFor="password"> Password <span className="text-red-500 text-sm">*</span></label>
-                                <input type="password" id="password" name="password" value={registerForm.password} onChange={(event) => handleInputChange(event, 'password')} />
-                                {errorsForm && <span className="text-red-500 text-xs">{errorsForm.password}</span>}
-                                <br />
-                                <label htmlFor="confirm-password"> Confirm your password <span className="text-red-500 text-sm">*</span></label>
-                                <input type="password" id="confirm-password" name="confirm-password" value={registerForm.confirmPassword} onChange={(event) => handleInputChange(event, 'confirmPassword')} />
-                                {errorsForm && <span className="text-red-500 text-xs">{errorsForm.confirmPassword}</span>}
-                                <br />
-                            </div>
-                            <div className="w-5"></div>
-                            <div className="flex flex-col">
-                                <label htmlFor="birthday"> Birthday <span className="text-red-500 text-sm">*</span></label>
-                                <input type="date" id="birthday" name="birthday" value={registerForm.birthday} onChange={(event) => handleInputChange(event, 'birthday')} />
-                                {errorsForm && <span className="text-red-500 text-xs">{errorsForm.birthday}</span>}
-                                <br />
-                                <label htmlFor="gender"> Gender</label>
-                                <select id="gender" name="gender" value={registerForm.gender} onChange={(event) => handleSelectChange(event, 'gender')}>
-                                    <option value="" disabled selected hidden>Select an option...</option>
-                                    {genderSelect.map((gender: string) => <option key={gender}>{gender}</option>)}
-                                </select>
-                                <br />
-                                <label htmlFor="email"> Email <span className="text-red-500 text-sm">*</span></label>
-                                <input type="mail" id='email' name="email" value={registerForm.email} onChange={(event) => handleInputChange(event, 'email')} />
-                                {errorsForm.email && <span className="text-red-500 text-xs">{errorsForm.email}</span>}
-                                <br />
-                            </div>
-                        </div >
-                        <div className="flex justify-center">
-                            <button>Create Account</button>
-                        </div>
-                    </form >
-                </div >
+            <div className="w-full flex justify-center min-w-70 bg-cyan-950 pt-20 text-white">
+                <h3 className="notable-regular pr-67 pb-10">Sign in</h3>
             </div>
-
+            <div className="w-full flex justify-center min-w-70 bg-cyan-950 h-dvh text-white">
+                {/* <form onSubmit={(event) => handleRegisterSubmitFormData(event)} className="flex flex-col" ref={registrationForm}> */}
+                <form onSubmit={(event) => handleRegisterSubmit(event)} className="">
+                    <div className="flex justify-between flex-row flex-wrap sm:flex sm:justify-center">
+                        <div className="flex flex-col">
+                            <label htmlFor='firstName'> First Name <span className="text-red-500 text-sm">*</span></label>
+                            <input type="text" id='firstName' name="firstName" value={registerForm.firstName} onChange={(event) => handleInputChange(event, 'firstName')} />
+                            {errorsForm.firstName && <span className="text-red-500 text-xs">{errorsForm.firstName}</span>}
+                            <br />
+                            <label htmlFor="lastName"> Last Name <span className="text-red-500 text-sm">*</span></label>
+                            <input type="text" id='lastName' name="lastName" value={registerForm.lastName} onChange={(event) => handleInputChange(event, 'lastName')} />
+                            {errorsForm && <span className="text-red-500 text-xs">{errorsForm.lastName}</span>}
+                            <br />
+                            <label htmlFor="password"> Password <span className="text-red-500 text-sm">*</span></label>
+                            <input type="password" id="password" name="password" value={registerForm.password} onChange={(event) => handleInputChange(event, 'password')} />
+                            {errorsForm && <span className="text-red-500 text-xs">{errorsForm.password}</span>}
+                            <br />
+                            <label htmlFor="confirm-password"> Confirm your password <span className="text-red-500 text-sm">*</span></label>
+                            <input type="password" id="confirm-password" name="confirm-password" value={registerForm.confirmPassword} onChange={(event) => handleInputChange(event, 'confirmPassword')} />
+                            {errorsForm && <span className="text-red-500 text-xs">{errorsForm.confirmPassword}</span>}
+                            <br />
+                        </div>
+                        <div className="w-5"></div>
+                        <div className="flex flex-col">
+                            <label htmlFor="birthday"> Birthday <span className="text-red-500 text-sm">*</span></label>
+                            <input type="date" id="birthday" name="birthday" value={registerForm.birthday} onChange={(event) => handleInputChange(event, 'birthday')} />
+                            {errorsForm && <span className="text-red-500 text-xs">{errorsForm.birthday}</span>}
+                            <br />
+                            <label htmlFor="gender"> Gender</label>
+                            <select id="gender" name="gender" value={registerForm.gender} onChange={(event) => handleSelectChange(event, 'gender')}>
+                                <option value="" disabled selected hidden>Select an option...</option>
+                                {genderSelect.map((gender: string) => <option key={gender}>{gender}</option>)}
+                            </select>
+                            <br />
+                            <label htmlFor="email"> Email <span className="text-red-500 text-sm">*</span></label>
+                            <input type="mail" id='email' name="email" value={registerForm.email} onChange={(event) => handleInputChange(event, 'email')} />
+                            {errorsForm.email && <span className="text-red-500 text-xs">{errorsForm.email}</span>}
+                            <br />
+                        </div>
+                    </div >
+                    <div className="flex justify-center">
+                        <button>Create Account</button>
+                    </div>
+                </form >
+            </div >
         </>
     );
 }
