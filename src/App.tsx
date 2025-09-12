@@ -12,6 +12,9 @@ function App() {
   const routes = createBrowserRouter([
     {
       path: '/', element: <RootLayout />, children: [
+        // { path: 'admin', element<HomePage/>, children: [
+        //   { path: '/admin/:userId', element: <MyBooks /> },
+        // ]},
         { path: '/', element: <HomePage /> },
         { path: '/my-books/:userId', element: <MyBooks /> },
         { path: '/log-in', element: <LogIn /> },

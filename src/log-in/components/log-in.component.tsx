@@ -1,10 +1,37 @@
 import type { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LogIn() {
+    const navigate = useNavigate();
 
-    const handleLoginSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleLoginSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log('Logging In...')
+        const currentForm = event.currentTarget ? event.currentTarget : undefined;
+        //     //const currentForm = registrationForm.current ? registrationForm.current : undefined;
+        const formData = new FormData(currentForm);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        for (const [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+        const data = {
+            email: email,
+            password: password,
+        }
+        console.log('Logging In...');
+        const response = await fetch('http://localhost:5001/api/user/login', {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify(data)
+        });
+        if (response.ok) {
+            console.log('all good i think');
+            navigate('..');
+        } else {
+            console.log('idk')
+        }
     }
 
     return (

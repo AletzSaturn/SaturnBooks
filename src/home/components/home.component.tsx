@@ -1,6 +1,6 @@
 import { RiPlanetLine } from "react-icons/ri";
 import space2 from '../../assets/space-background2.jpg';
-
+import Toast from "../../shared/components/toast.component";
 
 export default function HomePage() {
 
@@ -21,6 +21,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
+                <Toast />
             </div>
         </>
 

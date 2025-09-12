@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 type RegisterFormState = {
     firstName: string;
@@ -15,6 +16,8 @@ type RegisterFormState = {
 // }
 
 export default function Register() {
+    const navigate = useNavigate();
+
     const genderSelect: string[] = ['Female', 'Male', 'Other'];
 
     const registerFormData: RegisterFormState = {
@@ -57,14 +60,22 @@ export default function Register() {
     //     const firstName = formData.get('firstName');
     //     const lastName = formData.get('lastName');
     //     const birthday = formData.get('birthday');
+    //     const gender = formData.get('gender');
     //     const password = formData.get('password');
-    //     const confirmPassword = formData.get('confirmPassword');
     //     for (const [key, value] of formData.entries()) {
     //         console.log(`${key}: ${value}`);
     //     }
+    //     const dataToUpload = {
+    //         firstName,
+    //         lastName,
+    //         birthday,
+    //         gender,
+    //         password
+    //     };
+    //     console.log(dataToUpload)
     // }
 
-    const handleRegisterSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleRegisterSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newErrors: RegisterFormState = {
             firstName: "",
@@ -110,12 +121,24 @@ export default function Register() {
             newErrors.confirmPassword = newErrors.confirmPassword + `The passwords don't match.`
         } else {
             newErrors.confirmPassword = '';
+            registerForm.password = registerErrors.password;
         }
         setErrorsForm(newErrors);
         const errorsFree = Object.values(newErrors).every((item: any) => item === '');
         if (errorsFree) {
             //fetch to post data
-            localStorage.setItem('user', JSON.stringify(registerForm));
+            //localStorage.setItem('user', JSON.stringify(registerForm));
+            console.log(registerForm);
+            const response = await fetch('http://localhost:5001/api/user', {
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": JSON.stringify(registerForm)
+            });
+            if (response.ok) {
+                navigate('/');
+            }
         }
     }
 
@@ -129,16 +152,19 @@ export default function Register() {
 
     const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>, inputName: string) => {
         const { value } = event.target;
+        console.log(value);
+        const gender = value ? value.slice(0, 1) : null;
+        console.log(gender)
         setRegisterForm((prevState) => ({
             ...prevState,
-            [inputName]: value,
+            [inputName]: gender,
         }));
     }
 
     return (
         <>
             <div className="w-full flex justify-center min-w-70 bg-cyan-950 pt-20 text-white">
-                <h3 className="notable-regular pr-67 pb-10">Sign in</h3>
+                <h3 className="notable-regular pr-67 pb-10">Sign up</h3>
             </div>
             <div className="w-full flex justify-center min-w-70 bg-cyan-950 h-dvh text-white">
                 {/* <form onSubmit={(event) => handleRegisterSubmitFormData(event)} className="flex flex-col" ref={registrationForm}> */}
