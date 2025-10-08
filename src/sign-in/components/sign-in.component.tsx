@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 type RegisterFormState = {
     firstName: string;
@@ -136,7 +137,10 @@ export default function Register() {
                 },
                 "body": JSON.stringify(registerForm)
             });
+
             if (response.ok) {
+                console.log(response)
+                //useSelector()
                 navigate('/');
             }
         }
@@ -179,13 +183,9 @@ export default function Register() {
                             <input type="text" id='lastName' name="lastName" value={registerForm.lastName} onChange={(event) => handleInputChange(event, 'lastName')} />
                             {errorsForm && <span className="text-red-500 text-xs">{errorsForm.lastName}</span>}
                             <br />
-                            <label htmlFor="password"> Password <span className="text-red-500 text-sm">*</span></label>
-                            <input type="password" id="password" name="password" value={registerForm.password} onChange={(event) => handleInputChange(event, 'password')} />
-                            {errorsForm && <span className="text-red-500 text-xs">{errorsForm.password}</span>}
-                            <br />
-                            <label htmlFor="confirm-password"> Confirm your password <span className="text-red-500 text-sm">*</span></label>
-                            <input type="password" id="confirm-password" name="confirm-password" value={registerForm.confirmPassword} onChange={(event) => handleInputChange(event, 'confirmPassword')} />
-                            {errorsForm && <span className="text-red-500 text-xs">{errorsForm.confirmPassword}</span>}
+                            <label htmlFor="email"> Email <span className="text-red-500 text-sm">*</span></label>
+                            <input type="mail" id='email' name="email" value={registerForm.email} onChange={(event) => handleInputChange(event, 'email')} />
+                            {errorsForm.email && <span className="text-red-500 text-xs">{errorsForm.email}</span>}
                             <br />
                         </div>
                         <div className="w-5"></div>
@@ -200,9 +200,13 @@ export default function Register() {
                                 {genderSelect.map((gender: string) => <option key={gender}>{gender}</option>)}
                             </select>
                             <br />
-                            <label htmlFor="email"> Email <span className="text-red-500 text-sm">*</span></label>
-                            <input type="mail" id='email' name="email" value={registerForm.email} onChange={(event) => handleInputChange(event, 'email')} />
-                            {errorsForm.email && <span className="text-red-500 text-xs">{errorsForm.email}</span>}
+                            <label htmlFor="password"> Password <span className="text-red-500 text-sm">*</span></label>
+                            <input type="password" id="password" name="password" value={registerForm.password} onChange={(event) => handleInputChange(event, 'password')} />
+                            {errorsForm && <span className="text-red-500 text-xs">{errorsForm.password}</span>}
+                            <br />
+                            <label htmlFor="confirm-password"> Confirm your password <span className="text-red-500 text-sm">*</span></label>
+                            <input type="password" id="confirm-password" name="confirm-password" value={registerForm.confirmPassword} onChange={(event) => handleInputChange(event, 'confirmPassword')} />
+                            {errorsForm && <span className="text-red-500 text-xs">{errorsForm.confirmPassword}</span>}
                             <br />
                         </div>
                     </div >

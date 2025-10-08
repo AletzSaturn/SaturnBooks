@@ -9,11 +9,12 @@ export default function RootLayout() {
 
     const handleShowNavBar = () => {
         setShowNavBar(!showNavBar);
+        console.log(showNavBar)
     }
+
     return (
         <>
-            <TopNavBar showNavBar={showNavBar} handleShowNavBar={handleShowNavBar}>
-            </TopNavBar>
+            <TopNavBar showNavBar={showNavBar} handleShowNavBar={handleShowNavBar} />
             <div className={showNavBar ? 'blurred-content' : ''}>
                 <Outlet />
             </div>

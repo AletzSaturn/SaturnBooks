@@ -1,13 +1,16 @@
 import type { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/store";
 
 export default function LogIn() {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleLoginSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const currentForm = event.currentTarget ? event.currentTarget : undefined;
-        //     //const currentForm = registrationForm.current ? registrationForm.current : undefined;
+        // const currentForm = registrationForm.current ? registrationForm.current : undefined;
         const formData = new FormData(currentForm);
         const email = formData.get('email');
         const password = formData.get('password');
@@ -27,10 +30,20 @@ export default function LogIn() {
             "body": JSON.stringify(data)
         });
         if (response.ok) {
+            const { data } = await response.json();
+            const userData = {
+                userId: data.userId,
+                firstname: data.firstname,
+                lastName: data.lastName,
+                birthday: data.birthday,
+                gender: data.gender,
+                email: data.email,
+            }
+            dispatch(login(userData));
+
+            console.log(data)
             console.log('all good i think');
             navigate('..');
-        } else {
-            console.log('idk')
         }
     }
 

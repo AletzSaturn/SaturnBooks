@@ -5,6 +5,7 @@ import HomePage from './home/components/home.component';
 import RootLayout from './rootLayout/Root.component';
 import LogIn from './log-in/components/log-in.component';
 import MyBooks from './my-books/my-books.component';
+import BookDetails from './book-details/book-details.component';
 
 function App() {
 
@@ -15,11 +16,11 @@ function App() {
         // { path: 'admin', element<HomePage/>, children: [
         //   { path: '/admin/:userId', element: <MyBooks /> },
         // ]},
-        { path: '/', element: <HomePage /> },
+        { path: '', element: <HomePage /> },
         { path: '/my-books/:userId', element: <MyBooks /> },
         { path: '/log-in', element: <LogIn /> },
         { path: '/sign-in', element: <Register /> },
-        { path: '/book-search', element: <Register /> },
+        { path: '/book-details/:title', element: <BookDetails /> },
       ]
     }
   ]);

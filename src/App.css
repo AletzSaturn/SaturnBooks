@@ -1,7 +1,4 @@
 #root {
-  min-width: 100dvw;
-  min-height: 100dvh;
-  margin: 0 auto;
   font-family: 'Cambria, Cochin, Georgia, Times, ' Times New Roman', serif';
   color: #000;
 }
@@ -19,7 +16,11 @@ select {
   border-radius: 5px;
   color: white;
   padding-left: 5px;
-  border-bottom: #fff solid;
+  border-bottom: white solid;
+}
+
+option {
+  color: black;
 }
 
 select:hover,
