@@ -26,8 +26,6 @@ export default function TopNavBar({ showNavBar, handleShowNavBar }: NavBarInterf
 
     const bookSearchBar = async () => {
         dispatch(setSearchResults([]));
-
-        console.log('Searching...')
         const response = await bookSearch(bookData.searchTerm);
         dispatch(setSearchResults(response));
     }

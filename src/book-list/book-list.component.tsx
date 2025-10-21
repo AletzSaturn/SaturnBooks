@@ -1,21 +1,22 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { setBookDetails } from "../store/store";
+import type { Book } from "../interfaces/BookInterface";
 
 export default function BookList() {
     const bookData = useSelector((state: any) => state.bookSearch);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const bookDetails = useSelector((state: any) => state.bookDetails);
+    //const navigate = useNavigate();
+    //const bookDetails = useSelector((state: any) => state.bookDetails);
 
 
     useEffect(() => {
         console.log(Object.values(bookData.books));
     }, [bookData])
 
-    const redirectToDetails = (book) => {
+    const redirectToDetails = (book: Book) => {
         const selectedBook = {
             title: book.title,
             author: book.author,
@@ -24,7 +25,7 @@ export default function BookList() {
         }
 
         dispatch(setBookDetails(selectedBook));
-        navigate(`/book-details/${selectedBook.title}`);
+        // navigate(`/book-details/${selectedBook.title}`);
     }
 
     return (

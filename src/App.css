@@ -47,3 +47,10 @@ button:hover {
 button:active {
   background-color: rgb(28, 93, 167);
 }
+
+.box{
+  background-color: peachpuff;
+  position: absolute;
+  top: 10px;
+  box-shadow: #000;
+}

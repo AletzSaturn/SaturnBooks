@@ -6,17 +6,23 @@ import BookSearch from "../../book-search/components/book-search";
 import BookList from "../../book-list/book-list.component";
 import PropsExample from "../../shared/components/PropsExample";
 import { useEffect } from "react";
+import BookDetails from "../../book-details/book-details.component";
+import { useDispatch } from "react-redux";
+import { resetBookDetails, setSearchTerm } from "../../store/store";
 
 export default function HomePage() {
     const userData = useSelector((state: any) => state.userData);
+    const selectedBook = useSelector((state: any) => state.bookDetails);
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        console.log(poke)
-    }, [poke])
+    const closeBookDetails = () => {
+        dispatch(resetBookDetails());
+        dispatch(setSearchTerm(''));
+    }
 
     return (
-        <>
-            <div style={{ backgroundImage: `url(${space2})` }} className='flex justify-center items-center bg-center bg-cover min-h-153 text-white'>
+        <div className="h-dvh">
+            <div style={{ backgroundImage: `url(${space2})` }} className='flex justify-center items-center bg-center bg-cover text-white h-full'>
                 <div className="flex flex-row">
                     <div>
                         <h2 className="notable-regular">Saturn B</h2>
@@ -31,10 +37,13 @@ export default function HomePage() {
                 </div>
             </div>
             {/* <BookSearch /> */}
-            <BookList />
+            {
+                selectedBook.title != '' ?
+                    <BookDetails close={closeBookDetails} /> : <BookList />
+            }
             {userData.firstname.length > 0 &&
                 <Toast message={`Welcome ${userData.firstname}`} type='success' timer={5000} />
             }
-        </>
+        </div>
     );
 }

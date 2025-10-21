@@ -1,4 +1,6 @@
 import { configureStore, createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { Book } from '../interfaces/BookInterface';
+import type { initialInterfaceBooksState } from '../interfaces/InitialBooksInterface';
 
 const userInitialState = {
     userId: '',
@@ -9,14 +11,7 @@ const userInitialState = {
     email: '',
 };
 
-interface Book {
-    title: string;
-    author: string;
-    publishedYear: number;
-    coverURL: string;
-}
-
-const initialBooksState = {
+const initialBooksState: initialInterfaceBooksState = {
     books: [], // Start with an empty array of books
     searchTerm: '',
     isLoading: false,
