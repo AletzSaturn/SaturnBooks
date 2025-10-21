@@ -5,7 +5,7 @@ import HomePage from './home/components/home.component';
 import RootLayout from './RootLayout/Root.component';
 import LogIn from './log-in/components/log-in.component';
 import MyBooks from './my-books/my-books.component';
-import BookDetails from './book-details/book-details.component';
+// import BookDetails from './book-details/book-details.component';
 
 function App() {
 
