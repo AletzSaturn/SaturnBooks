@@ -5,8 +5,8 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import bookSearch from '../../book-search/services/book-search-service';
 import { useDispatch } from 'react-redux';
-import { setSearchResults, setSearchTerm, setStartSearch } from '../../store/store';
-import { useEffect, useState } from 'react';
+import { setSearchResults, setSearchTerm } from '../../store/store';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 interface NavBarInterface {

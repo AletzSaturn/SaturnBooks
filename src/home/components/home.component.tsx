@@ -1,11 +1,11 @@
 import { RiPlanetLine } from "react-icons/ri";
 import space2 from '../../assets/space-background2.jpg';
 import Toast from "../../shared/components/toast.component";
-import { useSelector, useStore } from "react-redux";
+import { useSelector } from "react-redux";
 import BookSearch from "../../book-search/components/book-search";
 import BookList from "../../book-list/book-list.component";
-import PropsExample from "../../shared/components/PropsExample";
-import { useEffect } from "react";
+// import PropsExample from "../../shared/components/PropsExample";
+// import { useEffect } from "react";
 import BookDetails from "../../book-details/book-details.component";
 import { useDispatch } from "react-redux";
 import { resetBookDetails, setSearchTerm } from "../../store/store";
@@ -36,7 +36,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            {/* <BookSearch /> */}
+            <BookSearch />
             {
                 selectedBook.title != '' ?
                     <BookDetails close={closeBookDetails} /> : <BookList />
